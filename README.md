@@ -13,6 +13,8 @@ express.js
 
 Nodejs 12
 
+MongoDB (Atlas MongoDB)
+
 ### Operations Flow
 
 ![operation flow](https://user-images.githubusercontent.com/17787436/116862775-8ae4da80-ac05-11eb-9c38-3a255bd80e9e.png "operation flow")
@@ -33,8 +35,11 @@ Client-Side application (/frontEnd folder)
 
 Backend application (/backend folder) is managing :
 
-1. Authentication : responsible for login, signup & checking the validity of connection tokens
+1. Authentication : responsible for login, signup & checking the validity of connection tokens, password haching
+![image](https://user-images.githubusercontent.com/17787436/116878272-6a297e80-ac1f-11eb-9dd4-2d6216ca95a6.png)
 2. Articles : reponsible for managing articles, comments and tags
+
+
 
 Frontend application (/client folder): represents the application that'll run on the user's browser in partiall(because we use ssr) so you can visualize the UI-components
 
@@ -89,7 +94,7 @@ Is assured by the frontend and the backend so the logic is devised between the t
 
 ## Upcoming feature
 
-this project was annalysed and developped in under 18 h stretched
+this project was annalysed and developped in under a hurry
 
 - Separate the backend into two microservises a smart-auth and a crud on
 - add elastic search to search input
