@@ -1,0 +1,39 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "autentification microservice",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.bundle.js",
+        "build": "webpack",
+        "dev": "nodemon ./server.js localhost 3080"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/benmed00/ben-meduim-hack.git"
+    },
+    "bugs": {
+        "url": "https://github.com/benmed00/ben-meduim-hack/issues"
+    },
+    "homepage": "https://github.com/benmed00/ben-meduim-hack#readme",
+    "author": "BEN-Yakoub Med",
+    "license": "MIT",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.11.0",
+        "mongoose-unique-validator": "^2.0.3"
+    },
+    "devDependencies": {
+        "del": "^5.1.0",
+        "fancy-log": "^1.3.3",
+        "gulp": "^4.0.2",
+        "gulp-zip": "^5.0.1",
+        "nodemon": "^2.0.2",
+        "webpack": "^4.42.1",
+        "webpack-stream": "^5.2.1"
+    }
+}
