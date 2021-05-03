@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 
@@ -11,25 +11,37 @@ const httpOptions = {
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  url = 'http://localhost:3000';
+  isAuth$ = new BehaviorSubject<boolean>(false);
+  token: string;
+  userId: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
-    console.log("Username : " + username);
-    return this.http.post(AUTH_API + 'signin', {
-      username,
-      password
-    }, httpOptions);
+  login(email: string, password: string): Observable<any> {
+    console.log('Username : ' + email);
+    return this.http.post(
+      AUTH_API + 'login',
+      {
+        email: email,
+        password: password,
+      },
+      httpOptions
+    );
   }
 
   register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      username,
-      email,
-      password
-    }, httpOptions);
+    return this.http.post(
+      AUTH_API + 'signup',
+      {
+        username,
+        email,
+        password,
+      },
+      httpOptions
+    );
   }
 }

@@ -1,33 +1,33 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-xl-9 mx-auto">
-      <div class="card card-signin flex-row my-5">
-        <div class="card-img-left d-none d-md-flex">
-          <!-- Background image for card set in CSS! -->
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-center">Sign In</h5>
-          <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-            <div class="form-label-group">
-              <input type="text" formControlName="username" class="form-control" placeholder="Username" required>
-              <div *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched" class="text-danger">
-                <div *ngIf="loginForm.get('username').getError('required')">Email is required</div>
-                <div *ngIf="loginForm.get('username').getError('minlength') || loginForm.get('username').getError('maxlength')">This field should between 6 and 25 caracters</div>
-              </div>
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                        <div class="form-label-group">
+                            <input type="text" formControlName="username" class="form-control" placeholder="Username or email" required>
+                            <div *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched" class="text-danger">
+                                <div *ngIf="loginForm.get('username').getError('required')">Email is required</div>
+                                <div *ngIf="loginForm.get('username').getError('minlength') || loginForm.get('username').getError('maxlength')">This field should between 6 and 25 caracters</div>
+                            </div>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="password" formControlName="password" class="form-control" placeholder="Password" required>
+                            <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="text-danger">
+                                <div *ngIf="loginForm.get('password').getError('required')">This field is required</div>
+                                <div *ngIf="loginForm.get('password').getError('minlength') || loginForm.get('password').getError('maxlength')">This field should between 6 and 25 caracters</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+                        <a class="d-block text-center mt-2 small" routerLink="/auth/signup">Register</a>
+                        <hr class="my-4">
+                    </form>
+                </div>
             </div>
-            <div class="form-label-group">
-              <input type="password" formControlName="password" class="form-control" placeholder="Password" required>
-              <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="text-danger">
-                <div *ngIf="loginForm.get('password').getError('required')">This field is required</div>
-                <div *ngIf="loginForm.get('password').getError('minlength') || loginForm.get('password').getError('maxlength')">This field should between 6 and 25 caracters</div>
-              </div>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
-            <a class="d-block text-center mt-2 small" routerLink="/auth/signup">Register</a>
-            <hr class="my-4">
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </div>

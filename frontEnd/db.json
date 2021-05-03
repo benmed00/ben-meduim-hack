@@ -1,19 +1,413 @@
 {
-  "posts": [
+  "articles": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Article Title 1",
+      "description": "I worked retail for three years at a higher-end interior design store, Crate & Barrel. I actually loved the job. It was low pressure and I got to meet and talk to random people. However, I did see my share of difficult customers. On one occasion a woman came in looking a bit frazzled. I’d just checked her out minutes beforehand. She slid her open box across the table and blurted out, “Sir. I’m sorry but you packed this wrong.”",
+      "created_by": {
+        "id": 4,
+        "username": "admin"
+      },
+      "createdAt": "28-04-2021",
+      "updated_date": "28-04-2021",
+      "tags": [
+        3
+      ],
+      "liked": true,
+      "like_nomber": 39,
+      "loved": true,
+      "loved_nomber": 26,
+      "reaction": false,
+      "reaction_nomber": 19,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Lakbir ABDERRAHIM",
+          "comment": "comment 1",
+          "comment_date": "28-03-2021 17:05"
+        },
+        {
+          "id": 1,
+          "author": "User USER",
+          "comment": "comment 2",
+          "comment_date": "09-02-2021 18:15"
+        },
+        {
+          "id": 1,
+          "author": "Mohammed Ali",
+          "comment": "comment 3",
+          "comment_date": "17-03-2021 14:49"
+        },
+        {
+          "id": 55,
+          "comment": "for three years at a higher-end interior design store, Crate & Barrel",
+          "comment_date": "02-05-2021 02:36",
+          "author": "Current User"
+        },
+        {
+          "id": 55,
+          "comment": "dddddddddddddddddd",
+          "comment_date": "02-05-2021 05:56",
+          "author": "admin"
+        }
+      ]
+    },
+    {
+      "title": "La Pêche à la ligne histoire d'enfance",
+      "description": "La Pêche à la ligne histoire d'enfance La Pêche à la ligne histoire d'enfance",
+      "tags": [
+        1,
+        2
+      ],
+      "created_by": {
+        "id": 6,
+        "username": "user"
+      },
+      "createdAt": "02-05-2021 04:26",
+      "loved_nomber": 1,
+      "loved": true,
+      "like_nomber": 1,
+      "liked": true,
+      "reaction_nomber": 1,
+      "reaction": true,
+      "updated_date": "",
+      "comments": [],
+      "id": 15
+    },
+    {
+      "title": "Article Title 2",
+      "description": "I worked retail for three years at a higher-end interior design store, Crate & Barrel. I actually loved the job. It was low pressure and I got to meet and talk to random people. However, I did see my share of difficult customers. On one occasion a woman came in looking a bit frazzled. I’d just checked her out minutes beforehand. She slid her open box across the table and blurted out, “Sir. I’m sorry but you packed this wrong.”\n",
+      "tags": [
+        1,
+        2,
+        3
+      ],
+      "created_by": {
+        "id": 4,
+        "username": "admin"
+      },
+      "createdAt": "02-05-2021 05:35",
+      "loved_nomber": 0,
+      "loved": false,
+      "like_nomber": 0,
+      "liked": false,
+      "reaction_nomber": 0,
+      "reaction": false,
+      "updated_date": "",
+      "comments": [],
+      "id": 16
+    },
+    {
+      "title": "Article Title 3",
+      "description": "Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3 Article Title 3Article Title 3 Article Title 3 Article Title 3",
+      "tags": [
+        1,
+        2
+      ],
+      "created_by": {
+        "id": 4,
+        "username": "admin"
+      },
+      "createdAt": "02-05-2021 11:05",
+      "loved_nomber": 0,
+      "loved": false,
+      "like_nomber": 1,
+      "liked": true,
+      "reaction_nomber": 1,
+      "reaction": true,
+      "updated_date": "",
+      "comments": [
+        {
+          "id": 55,
+          "comment": "test test tes t",
+          "comment_date": "02-05-2021 11:14",
+          "author": "username"
+        }
+      ],
+      "id": 17
+    },
+    {
+      "title": "Article Title 5",
+      "description": "Article Title 5 Article Title 5 Article Title 5 Article Title 5",
+      "tags": [
+        1
+      ],
+      "created_by": {
+        "id": 8,
+        "username": "username"
+      },
+      "createdAt": "02-05-2021 11:14",
+      "loved_nomber": 0,
+      "loved": false,
+      "like_nomber": 0,
+      "liked": false,
+      "reaction_nomber": 0,
+      "reaction": false,
+      "updated_date": "",
+      "comments": [],
+      "id": 18
+    },
+    {
+      "title": "Titre du Lundi",
+      "description": "bwrbrwbrwbrwbrwbrwbrwbrwbrwrb\nw\nr\n\ngwgerghujrwignewg\ngr\nwgr",
+      "tags": [
+        1
+      ],
+      "created_by": {},
+      "createdAt": "03-05-2021 02:01",
+      "loved_nomber": 0,
+      "loved": false,
+      "like_nomber": 0,
+      "liked": false,
+      "reaction_nomber": 0,
+      "reaction": false,
+      "updated_date": "",
+      "comments": [],
+      "id": 19
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "title": "Tag 1",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-05-2021"
+    },
+    {
+      "id": 2,
+      "title": "Tag 2",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-05-2021"
+    },
+    {
+      "id": 3,
+      "title": "Tag 3",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-05-2021"
+    }
+  ],
+  "reactions": [
+    {
+      "id": 1,
+      "type": "like",
+      "createdAt": "02-05-2021",
+      "idArticle": 1,
+      "idUser": 1
+    },
+    {
+      "id": 2,
+      "type": "adore",
+      "createdAt": "02-05-2021",
+      "idArticle": 2,
+      "idUser": 2
+    },
+    {
+      "id": 3,
+      "type": "reaction",
+      "createdAt": "02-05-2021",
+      "idArticle": 2,
+      "idUser": 1
+    },
+    {
+      "id": 4,
+      "type": "like",
+      "createdAt": "02-05-2021",
+      "idArticle": 3,
+      "idUser": 2
+    },
+    {
+      "id": 5,
+      "type": "adore",
+      "createdAt": "02-05-2021",
+      "idArticle": 1,
+      "idUser": 1
+    },
+    {
+      "id": 6,
+      "type": "reaction",
+      "createdAt": "02-05-2021",
+      "idArticle": 3,
+      "idUser": 2
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "content": "comment 1",
+      "createdAt": "02-05-2021",
+      "idUser": 1,
+      "idArticle": 1
+    },
+    {
+      "id": 2,
+      "content": "comment 2",
+      "createdAt": "02-05-2021",
+      "idUser": 2,
+      "idArticle": 1
+    },
+    {
+      "id": 3,
+      "content": "comment 3",
+      "createdAt": "02-05-2021",
+      "idUser": 1,
+      "idArticle": 2
+    },
+    {
+      "id": 4,
+      "content": "comment 4",
+      "createdAt": "02-05-2021",
+      "idUser": 2,
+      "idArticle": 2
+    },
+    {
+      "id": 5,
+      "content": "comment 5",
+      "createdAt": "02-05-2021",
+      "idUser": 1,
+      "idArticle": 3
+    },
+    {
+      "id": 6,
+      "content": "comment 6",
+      "createdAt": "02-05-2021",
+      "idUser": 2,
+      "idArticle": 3
+    },
+    {
+      "id": 7,
+      "content": "comment 7",
+      "createdAt": "02-05-2021",
+      "idUser": 1,
+      "idArticle": 3
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "email": "user@hacktohire",
+      "password": "1234",
+      "role": "USER"
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "email": "admin@hacktohire",
+      "password": "1234",
+      "role": "ADMIN"
+    }
+  ],
+  "article": [
+    {
+      "id": 1,
+      "title": "Article 1",
+      "description": "description de l'article 1",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-05-2021",
+      "userId": 1,
+      "tags": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Article 2",
+      "description": "description de l'article 2",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-04-2021",
+      "userId": 2,
+      "tags": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Article 3",
+      "description": "description de l'article 3",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-04-2021",
+      "userId": 1,
+      "tags": [
+        3,
+        2
+      ],
+      "reaction_nomber": null,
+      "reaction": true
+    },
+    {
+      "id": 4,
+      "title": "Article 4",
+      "description": "description de l'article 4",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-05-2021",
+      "userId": 2,
+      "tags": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Article 5",
+      "description": "description de l'article 5",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-03-2021",
+      "userId": 1,
+      "tags": [
+        1,
+        2
+      ],
+      "reaction_nomber": null,
+      "reaction": true
+    },
+    {
+      "id": 6,
+      "title": "Article 6",
+      "description": "description de l'article 6",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-03-2021",
+      "userId": 2,
+      "tags": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Article 7",
+      "description": "description de l'article 7",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-02-2021",
+      "userId": 1,
+      "tags": [
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Article 8",
+      "description": "description de l'article 8",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-05-2021",
+      "userId": 2,
+      "tags": [
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Article 9",
+      "description": "description de l'article 9",
+      "createdAt": "02-05-2021",
+      "updatedAt": "02-01-2021",
+      "userId": 1,
+      "tags": [
+        1,
+        2
+      ]
+    }
+  ]
 }

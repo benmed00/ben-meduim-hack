@@ -54,8 +54,8 @@ export class HomeComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showUserBoard = this.roles.includes('ROLE_USER');
+      this.showAdminBoard = this.roles?.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles?.includes('ROLE_USER');
 
       this.username = this.tokenStorageService.getUser().username;
     }
@@ -105,6 +105,8 @@ export class HomeComponent implements OnInit {
   }
 
   addNewCommentToArticle(): void {
+    console.log("Comment");
+
     this.currentArticle.comments.push(this.newComment.value);
     this.articleService.updateArticle(this.currentArticle).subscribe(
       (data) => {

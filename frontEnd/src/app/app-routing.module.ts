@@ -6,12 +6,12 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: '/landing',
-    pathMatch: 'full'
+    redirectTo: '/home',
+    pathMatch: 'full',
   },
   { path: 'home', component: HomeComponent },
 ];

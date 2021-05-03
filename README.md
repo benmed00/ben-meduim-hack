@@ -18,7 +18,7 @@ Authentication + Articles-CRUD microservice (/backend folder)
 `npm run dev`
 
 Client-Side application (/frontEnd folder)
-`ng serve`
+`npm run start`
 
 ## Arcitecture
 
