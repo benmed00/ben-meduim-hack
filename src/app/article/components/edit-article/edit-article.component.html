@@ -1,0 +1,33 @@
+<div class="card border-secondary mx-5">
+  <div class="card-header bg-success text-white text-center"><b>New Article</b></div>
+  <div class="card-body">
+    <div class="container" *ngIf="articleFormGroup">
+      <form [formGroup]="articleFormGroup" (ngSubmit)="onUpdateArticle()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" formControlName="title" id="title" placeholder="Title...">
+          <div *ngIf="articleFormGroup.get('title').invalid && (articleFormGroup.get('title').touched || articleFormGroup.get('title').dirty)" class="text-danger">
+            <div *ngIf="articleFormGroup.get('title').getError('required')">This field is required</div>
+            <div *ngIf="articleFormGroup.get('title').getError('maxlength') || articleFormGroup.get('title').getError('minlength')">This field should between 10 and 200 caracters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" formControlName="description" rows="4" id="description" placeholder="Description..."></textarea>
+          <div *ngIf="articleFormGroup.get('description').invalid && (articleFormGroup.get('description').touched || articleFormGroup.get('description').dirty)" class="text-danger">
+            <div *ngIf="articleFormGroup.get('description').getError('required')">This field is required</div>
+            <div *ngIf="articleFormGroup.get('description').getError('maxlength') || articleFormGroup.get('description').getError('minlength')">This field should between 50 and 1000 caracters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Tags</label>
+          <select formControlName="tags" multiple class="form-control" id="exampleFormControlSelect2">
+            <option *ngFor="let tag of tags" [value]="tag.id">{{tag.title}}</option>
+          </select>
+        </div>
+        <button type="button" routerLink="/" class="btn btn-warning float-left"><i class="fa fa-arrow-circle-left"></i> Cancel</button>
+        <button [disabled]="articleFormGroup.invalid" class="btn float-right btn-success"><i class="fa fa-save mr-2"></i>Update Article</button>
+      </form>
+    </div>
+  </div>
+</div>

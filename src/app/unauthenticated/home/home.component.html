@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-sm-8">
+        <div class="jumbotron article-details" *ngIf="!currentArticle; else showArticle">
+            <app-hacktohire></app-hacktohire>
+        </div>
+        <ng-template #showArticle>
+            <div class="jumbotron article-details">
+                <h1 class="display-3">
+                    {{currentArticle.title}}
+                    <button *ngIf="showAdminBoard || currentArticle.created_by.username == username" (click)="onEditArticle()" class="btn btn-outline-warning btn-sm mx-2 float-right"><i class="fa fa-pencil"></i></button>
+                    <button *ngIf="currentArticle.created_by.username == username" (click)="onDeleteArticle()" class="btn btn-outline-danger btn-sm float-right"><i class="fa fa-trash"></i></button>
+                </h1>
+                <small class="text-muted mb-2">Author : {{currentArticle.created_by.username}} ~ Published at :
+          {{currentArticle.createdAt}}</small>
+                <p class="lead">
+                    {{currentArticle.description}}
+                    <br />
+                    <b class="tags">
+            <span class="badge badge-success badge-pill mr-2" *ngFor="let tag of currentArticle.tags"><i
+                class="fa fa-tag mr-1"></i>{{tag}}</span>
+          </b>
+                    <b class="float-right reaction_article" *ngIf="isLoggedIn">
+            <span (click)="addReactionToArticle('loved')" class="badge badge-pill mr-2"
+              [ngClass]="{'badge-danger': currentArticle.loved, 'badge-dark': !currentArticle.loved}"><i
+                class="fa fa-heart mr-1"></i>{{currentArticle.loved_nomber}}</span>
+            <span (click)="addReactionToArticle('reaction')" class="badge badge-pill mr-2"
+              [ngClass]="{'badge-warning': currentArticle.reaction, 'badge-dark': !currentArticle.reaction}"><i
+                class="fa fa-lightbulb-o mr-1"></i>{{currentArticle.reaction_nomber}}</span>
+            <span (click)="addReactionToArticle('liked')" class="badge badge-pill mr-2"
+              [ngClass]="{'badge-primary': currentArticle.liked, 'badge-dark': !currentArticle.liked}"><i
+                class="fa fa-thumbs-up mr-1"></i>{{currentArticle.like_nomber}}</span>
+          </b>
+                </p>
+                <br />
+                <div class="comments">
+                    <ul class="list-group">
+                        <li *ngFor="let com of currentArticle.comments" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{com.comment}}
+                            <span class="badge badge-pill" *ngIf="username != com.author">{{com.author}} ~ {{com.comment_date}}</span>
+                            <span class="badge badge-pill" *ngIf="username == com.author">Author ~ {{com.comment_date}}</span>
+                        </li>
+                        <li *ngIf="isLoggedIn">
+                            <form [formGroup]="newComment">
+                                <div class="form-group " [ngClass]="{'has-danger':newComment.controls.comment.errors && (newComment.controls.comment.touched || newComment.controls.comment.dirty)}">
+                                    <input type="text" class="form-control" formControlName="comment" placeholder="Comment...">
+                                    <br />
+                                    <div *ngIf="newComment.controls.comment.errors && (newComment.controls.comment.touched || newComment.controls.comment.dirty)" class="text-danger text-sm-left">
+                                        <span *ngIf="newComment.controls.comment.errors.required">This field is required</span>
+                                        <span *ngIf="newComment.controls.comment.errors.maxlength || newComment.controls.comment.errors.minlength">This
+                      field should between 10 and 50 caracters</span>
+                                    </div>
+                                </div>
+                                <button [disabled]="newComment.invalid" (click)="addNewCommentToArticle()" class="btn btn-primary btn-sm float-right"><i class="fa fa-send"></i></button>
+                            </form>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <fieldset>
+                <input (keyup)="onSearchArticleByKeyword()" [(ngModel)]="keywordToSearch" class="form-control" type="text" placeholder="Search...">
+            </fieldset>
+        </div>
+
+        <button *ngFor="let tag of tags" (click)="onSearchArticleByTag(tag.id)" class="btn btn-outline-info btn-sm mr-2"> <i
+        class="fa fa-tag"></i> {{tag.title}}</button>
+        <button *ngIf="isLoggedIn" routerLink="/articles/new" class="btn btn-success btn-sm mr-2 float-right"> <i
+        class="fa fa-plus"></i> New Article</button>
+
+        <ng-container *ngIf="articles$ | async as result" [ngSwitch]="result.dataState">
+            <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+                <div class="progress mt-4">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+                <div class="alert alert-dismissible alert-danger mt-4">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p class="mb-0"> {{result.errorMessage}}</p>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+                <div class="card border-warning mt-5" *ngIf="result.data.length<1">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">No Items</h4>
+                    </div>
+                </div>
+                <div class="list_article">
+                    <app-article-single *ngFor="let article of result.data" [article]="article" (articleToShow)="onShowDetailsArticle($event)"></app-article-single>
+                </div>
+                <button *ngIf="totaleShower < totaleElements" (click)="showMore()" class="btn btn-outline-primary btn-sm mt-2">Show More</button>
+            </ng-container>
+        </ng-container>
+
+    </div>
+</div>

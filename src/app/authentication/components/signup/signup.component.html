@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Register</h5>
+          <form class="form-signin" [formGroup]="registerFormGroup" (ngSubmit)="onRegister()">
+            <div class="form-label-group">
+              <input type="text" formControlName="username" class="form-control" placeholder="Username" required autofocus>
+              <div *ngIf="registerFormGroup.get('username').invalid && registerFormGroup.get('username').touched" class="text-danger">
+                <div *ngIf="registerFormGroup.get('username').getError('required')">Username is required</div>
+                <div *ngIf="registerFormGroup.get('username').getError('maxlength') || registerFormGroup.get('username').getError('minlength')">Username should between 5 and 15 caracters</div>
+              </div>
+            </div>
+            <div class="form-label-group">
+              <input type="email" formControlName="email" class="form-control" placeholder="Email address" required>
+              <div *ngIf="registerFormGroup.get('email').invalid && registerFormGroup.get('email').touched" class="text-danger">
+                <div *ngIf="registerFormGroup.get('email').getError('required')">Email is required</div>
+                <div *ngIf="registerFormGroup.get('email').getError('email')">This field should be email address</div>
+              </div>
+            </div>
+            <div class="form-label-group">
+              <input type="password" formControlName="password" class="form-control" placeholder="Password" required>
+              <div *ngIf="registerFormGroup.get('password').invalid && registerFormGroup.get('password').touched" class="text-danger">
+                <div *ngIf="registerFormGroup.get('password').getError('required')">Password is required</div>
+                <div *ngIf="registerFormGroup.get('password').getError('maxlength') || registerFormGroup.get('password').getError('minlength')">Password should between 5 and 15 caracters</div>
+              </div>
+            </div>
+            <div class="form-label-group">
+              <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirm password" required>
+              <div *ngIf="registerFormGroup.get('confirmPassword').invalid && registerFormGroup.get('confirmPassword').touched" class="text-danger">
+                <div *ngIf="registerFormGroup.get('confirmPassword').getError('required')">Confirm password is required</div>
+                <div *ngIf="registerFormGroup.get('confirmPassword').getError('maxlength') || registerFormGroup.get('confirmPassword').getError('minlength')">Confirm password should between 5 and 15 caracters</div>
+                <div *ngIf="registerFormGroup.hasError('notSame')">Passwords do not match</div>
+              </div>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+            <a class="d-block text-center mt-2 small" routerLink="/auth/login">Sign In</a>
+            <hr class="my-4">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
