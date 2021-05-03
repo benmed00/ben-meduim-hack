@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ArticleComponent } from './article.component';
-import { ArticleSingleComponent } from '../unauthenticated/article-single/article-single.component';
 import { EditArticleComponent } from './components/edit-article/edit-article.component';
 
+import { NewArticleComponent } from './components/new-article/new-article.component';
+import { SharedModule } from '../shared/shared.module';
+import { ArticleRoutingModule } from './article-routing.module';
+
 @NgModule({
-  imports: [CommonModule],
-  declarations: [
-    ArticleComponent,
-    ArticleSingleComponent,
-    EditArticleComponent,
-  ],
+  imports: [SharedModule, ArticleRoutingModule],
+  declarations: [ArticleComponent, EditArticleComponent, NewArticleComponent],
 })
 export class ArticleModule {}

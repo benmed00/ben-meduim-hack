@@ -1,43 +1,45 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewArticleComponent } from './article/components/new-article/new-article.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
-import { AuthenticationModule } from './authentication/authentication.module';
-import { ArticleModule } from './article/article.module';
+
+import { HomeComponent } from './unauthenticated/home/home.component';
+import { ArticleSingleComponent } from './unauthenticated/article-single/article-single.component';
 
 import { DatePipe } from '@angular/common';
-import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { HomeComponent } from './unauthenticated/home/home.component';
 
+import { ArticleModule } from './article/article.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { SharedModule } from './shared/shared.module';
+
+import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
+import { HacktohireComponent } from './unauthenticated/hacktohire/hacktohire.component';
 
 
 @NgModule({
   declarations: [
-    NavbarComponent,
+    AppComponent,
     HomeComponent,
-    NewArticleComponent,
+    ArticleSingleComponent,
+    HacktohireComponent,
   ],
   imports: [
-    AuthenticationModule,
+
+    SharedModule,
     ArticleModule,
-    HttpClientModule,
+    AuthenticationModule,
+
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
+
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
   ],
   providers: [DatePipe, AuthInterceptor],
   bootstrap: [AppComponent],
