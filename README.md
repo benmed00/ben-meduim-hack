@@ -5,20 +5,30 @@ A Medium clone where users can search, read, create and comment articles of thei
 
 ## Overview
 
-technologie principal utiliser
+Dev-stack used in the app :
+
 Angular 11(with ssr approche "Angular Universal")
+
 express.js
+
 Nodejs 12
+
+### Operations Flow
+
+![operation flow](https://user-images.githubusercontent.com/17787436/116862775-8ae4da80-ac05-11eb-9c38-3a255bd80e9e.png "operation flow")
 
 the developpement of this application was emphasized on the frontEnd section over the backend.
 
 ### Get a demo
 
 Authentication + Articles-CRUD microservice (/backend folder)
+
 `npm run dev`
 
 Client-Side application (/frontEnd folder)
+
 `ng serve`
+
 
 ## Arcitecture
 
@@ -57,16 +67,25 @@ Is assured by the frontend and the backend so the logic is devised between the t
 > this app is ready to be dockerized
 
 // check docker in the machine
+
 `docker info`
+
 `docker --version`
 
 // create an image
+
 `docker build -t simple-medium .`
+
 // check the images
+
 `docker images`
+
 // running on Image
+
 `docker run -it -p  3080:3080 --name ben-medium-hack angular-node-image`
+
 // check the container
+
 `docker ps`
 
 ## Upcoming feature
